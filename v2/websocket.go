@@ -59,6 +59,7 @@ var wsServe = func(cfg *WsConfig, handler WsHandler, errHandler ErrHandler) (don
 			// This function overwrites the default ping frame handler
 			// sent by the websocket API server
 			keepAlive(c, WebsocketTimeout)
+			handler([]byte(`{"e": "ping"}`))
 		}
 
 		// Wait for the stopC channel to be closed.  We do that in a
