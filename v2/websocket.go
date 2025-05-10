@@ -93,7 +93,7 @@ func keepAlive(c *websocket.Conn, timeout time.Duration, handler WsHandler) {
 	lastResponse := time.Now()
 
 	c.SetPingHandler(func(pingData string) error {
-		handler([]byte(`{"e": "ping"}`))
+		handler([]byte(`{"e": "binancePing"}`))
 
 		// Respond with Pong using the server's PING payload
 		err := c.WriteControl(
